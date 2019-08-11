@@ -1,0 +1,63 @@
+.file_uploading {
+  margin-left: 5px;
+  margin-top: 50px;
+}
+.table_and_filters {
+  margin-top: 10px;
+  margin-left: 5px;
+  /*border: 1px solid black;*/
+
+}
+#min_dist, #dist_from_middle, #max_bad_places, #min_vol {
+  width: 50px;
+  /*margin-left: 20px;*/
+  float: right;
+}
+.title {
+  text-align: center;
+  text-decoration-line: underline;
+}
+.buttons {
+  /*border: 1px solid black;*/
+}
+.valid_table {
+  margin-left: 20px;
+}
+.valid_file {
+  /*text-align: center;*/
+  /*border: 1px solid black;*/
+}
+.valid_file_text {
+  margin-left: 198px;
+}
+#file {
+  margin-bottom: 10px;
+}
+.error_table {
+  margin-left: 15px;
+}
+#onAdd {
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+#onClear, #onRemove {
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+#new_indexes {
+  margin-left: 5px;
+  margin-bottom: 3px;
+  width: 70px;
+}
+#new_project {
+  width: 90px;
+  margin-bottom: 3px;
+}
+input::placeholder {
+  color: slategray;
+  font-size: 10pt;
+}
+.submit {
+  padding-left: 30px;
+}
+

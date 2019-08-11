@@ -1,0 +1,96 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="row justify-content-center">
+    <div class="col-md-2 title">
+      <h2>Select Index</h2>
+    </div>
+  </div>
+  <div class="row table_and_filters justify-content-center">
+    <div class="col-md-4 filters">
+      <h5>Filters:</h5>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <label for="min_dist">Minimum distance </label>
+          <input type="number" id="min_dist" name="min_dist" [(ngModel)]="min_dist" min="0" max="8" required></li>
+
+        <li class="list-group-item">
+          <label for="dist_from_middle">Distance from middle </label>
+          <input type="number" id="dist_from_middle" name="dist_from_middle" [(ngModel)]="dist_from_middle" min="0"
+                 max="1" step="0.1" required></li>
+
+        <li class="list-group-item">
+          <label for="max_bad_places">Max bad places (AC/GT) </label>
+          <input type="number" id="max_bad_places" name="max_bad_places" [(ngModel)]="max_bad_places" min="0" max="5"
+                 required></li>
+
+        <li class="list-group-item">
+          <label for="min_vol">Minimum volume</label>
+          <input type="number" id="min_vol" name="min_vol" [(ngModel)]="min_vol" min="0" max="100" required></li>
+      </ul>
+      <!--Uploading file-->
+      <div class="row file_uploading">
+        <input type="file" class="custum-file-input" id="file" (change)="onImportPlate($event)" accept=".xlsx">
+
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="row grid_inputs">
+        <input type="txt" id="new_project" name="new_project" [(ngModel)]="new_project" placeholder="Project Name">
+        <input type="number" id="new_indexes" name="new_indexes" [(ngModel)]="new_indexes" placeholder="Samples">
+        <button type="button" class="btn btn-primary btn-sm" id="onAdd" (click)="onAdd()">Add New</button>
+        <button type="button" class="btn btn-success btn-sm" id="onClear" (click)="onClear()">Clear All</button>
+        <button type="button" class="btn btn btn-danger btn-sm" id="onRemove" (click)="onRemoveSelected()">Remove</button>
+
+      </div>
+      <div class="row grid">
+        <ag-grid-angular
+          style="height: 300px; width: 410px;"
+          class="ag-theme-balham"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          [rowStyle]="rowStyle"
+          (gridReady)=onGridReady($event)
+          [overlayNoRowsTemplate]="'Insert Project Name and Number of Samples'"
+          [rowSelection]="rowSelection"
+          [rowMultiSelectWithClick]='true'
+        >
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-md-7 order-2 buttons">
+      <div class="col-md-5 error_table">
+      <span class="alert-primary valid_table" *ngIf="recordes().length === 0">
+          Please enter valid input to the table
+        </span>
+      </div>
+
+    </div>
+    <div class="col-md-5 order-1 valid_file">
+    <span class="alert-primary valid_file_text" *ngIf="!file">
+      Please upload a valid excel file
+    </span>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-9 submit">
+      <button type="submit" class="btn btn-success btn-lg" id="Sbutton"
+              [disabled]="!f.valid || recordes().length===0 || !file">
+        Submit
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center error_log">
+    <p class="alert-danger">
+      {{error_log}}
+    </p>
+  </div>
+</form>
+
+<div class="row justify-content-center">
+  <p class="alert-primary">
+    {{this.show}}
+  </p>
+</div>
+
+

@@ -1,0 +1,16 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+/* You can add global styles to this file, and also import other style files */
+#main-div {
+  margin: 0 auto;
+  width: 1400px;
+  min-height: 100%;
+  box-shadow: dodgerblue;
+}
+.main-shadow{
+  box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.5)
+}
+html,body{
+  height: 100vh;
+}

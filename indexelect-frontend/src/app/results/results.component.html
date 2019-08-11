@@ -1,0 +1,75 @@
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-2 title">
+      <h2>Results</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-9 result_table ">
+      <table class="table">
+        <thead>
+        <tr class="table-secondary">
+          <th scope="col">Project</th>
+          <th scope="col">Id</th>
+          <th scope="col">Index Tag</th>
+          <th scope="col">Sequence</th>
+          <th scope="col">Well</th>
+          <th scope="col">Volume</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-active" *ngFor="let index_item of result[page - 1].indexes">
+          <td>
+            {{index_item.project}}
+          </td>
+          <td>
+            {{index_item.id}}
+          </td>
+          <td>
+            {{index_item.tag}}
+          </td>
+          <td>
+            {{index_item.sequence}}
+          </td>
+          <td>
+            {{index_item.well}}
+          </td>
+          <td>
+            {{index_item.volume}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        Min Volume {{result[page - 1].min_volume}} --- Page {{page}} / {{this.result.length}}
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-around pages">
+    <div class="col-sm1 prev">
+      <button class="btn btn-success" id="bprevious" (click)="previous_result(this.page)">Previous</button>
+    </div>
+    <div class="col-sm-2 num_table">
+      <button class="btn btn-info" id="export" (click)="export_result()">Export Results</button>
+    </div>
+    <div class="col-sm1 next">
+      <button class="btn btn-success" id="bnext" (click)="next_result(this.page)">Next</button>
+    </div>
+  </div>
+  <div class="row justify-content-center error_log" *ngIf="this.error === true">
+    <p class="alert-primary">
+      There are no results, Please try different parameters...
+    </p>
+  </div>
+</div>
+
+
+
+<!--<ag-grid-angular-->
+<!--class="ag-theme-balham"-->
+<!--id="table"-->
+<!--[rowData]="rowDataTest"-->
+<!--[columnDefs]="columnDefs">-->
+<!--</ag-grid-angular>-->

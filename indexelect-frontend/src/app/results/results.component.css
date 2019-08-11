@@ -1,0 +1,30 @@
+.title {
+  text-align: center;
+  text-decoration-line: underline;
+}
+.result_table {
+  /*border: 1px solid black;*/
+  text-align: center;
+  padding-top: 7px;
+}
+/*#table {*/
+  /*height: 300px;*/
+  /*width: 400px;*/
+  /*margin-left: 70px;*/
+/*}*/
+.pages {
+  /*border: 1px solid black;*/
+  padding-top: 10px;
+
+}
+.next, .prev{
+  padding-bottom: 20px;
+}
+.num_table {
+  /*border-right: 1px solid black;*/
+  font-size: 14pt;
+  text-align: center;
+}
+.tr, .td {
+  border: 1px solid black;
+}
