@@ -12,7 +12,7 @@ source ~/ve/indexelect/bin/activate
 Get code:
 ```
 cd ~/workspace/
-git clone git@bitbucket.org:incpm/indexelect.git
+git clone https://github.com/matanz144/IndeXelect.git
 ```
 
 Install dependencies:
